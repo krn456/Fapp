@@ -1,0 +1,66 @@
+{ "meta":[
+    {
+        "key":"country",
+        "option":[
+            { "key": "IN", "value":"India"},
+            { "key": "USA", "value":"United Stat of America"},
+            { "key": "UK", "value":"United Kingdom "}
+        ],
+        "order": 8,
+        "controlType":"dropdown"
+    },
+    {
+        "controlType":"label",
+        "order":7,
+        "text": "Country :"
+
+    },
+
+    {
+        "controlType":"label",
+        "order":1,
+        "text": "First Name :"
+    },
+    {
+        "controlType":"textinput",
+        "order":2,
+        "key": "FirstName :",
+        "required":true
+    },
+
+    {
+        "controlType":"label",
+        "order":3,
+        "text": "last Name :"
+    },
+    {
+        "controlType":"textinput",
+        "order":4,
+        "key": "lastName :",
+        "required":true
+    },
+    {
+        "controlType":"label",
+        "order":5,
+        "text": "Email Address :"
+    },
+    {
+        "controlType":"textinput",
+        "order":6,
+        "key": "EmailAddress :",
+        "label":"Email"
+        
+    },
+    {
+        "controlType":"checkbox",
+        "order":9,
+        "key": "resident :",
+        "label":"I'm resident"
+        
+    }
+
+
+
+
+
+]} 

@@ -1,0 +1,349 @@
+<!-- <p *ngFor ="let user of users">{{ user.name}}</p> -->
+
+<!-- <p>{{ users | json }}</p> -->
+
+<div class="container">
+
+    <header class="text-center pt-2">
+        Cards design App
+    </header>
+    <fieldset class="border p-4">
+        <form [formGroup]="cardsBgForm" (ngSubmit)="onSubmit()">
+            <div class="row g-3">
+                <div class="col-sm-12">
+                    <label class="form-label" for="progst" id="status">Status:</label>
+                    <select class="form-select option" id="progst" formControlName="Status"
+                        [ngClass]="{'is-invalid':submitted && Validate['Status'].errors}">
+                        <option disabled="disabled" selected value="">--Chose Option</option>
+                        <option value="Current">Current</option>
+                        <option value="X">X</option>
+                        <option value="XX">XX</option>
+                    </select>
+
+                    <div *ngIf="submitted && Validate['Status']?.invalid "
+                        style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                        This Field Can't be Empty! </div>
+
+                </div>
+            </div>
+
+            <!-- <p *ngFor= "let item of list">{{ item.Name }}</p>   -->
+
+            <div class="row g-3">
+                <div class="col-sm-12">
+                    <label class="form-leble">Faculty:</label>
+
+                    <select class="option form-select" formControlName="Faculty"
+                        [ngClass]="{'is-invalid':submitted && Validate['Status'].errors}">
+                        <option disabled="disabled" selected value=""> --Chose Option</option>
+                        <option *ngFor ="let user of users" value="user.name">{{ user.name }}</option>
+                        <!-- <p *ngFor ="let user of users">{{ user.name}}</p> -->
+                       
+                    </select>
+                    
+                    <div *ngIf="submitted && Validate['Faculty']?.invalid"
+                        style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                        This Field Can't be Empty! </div>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <div class="form-label">Course:</div>
+                    <select class="form-select option" formControlName="Course"
+                        [ngClass]="{'is-invalid':submitted && Validate['Status'].errors}">
+                        <option disabled="disabled" selected value="">--Chose Option</option>
+                        <option value="BCA">BCA</option>
+                        <option value="B it">Bit</option>
+                        <option value="B tech">B tech</option>
+                    </select>
+
+                    <div *ngIf="submitted && Validate['Course']?.invalid"
+                        style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                        This Field Can't be Empty! </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-label">Branch</div>
+                    <select class="form-select option" formControlName="Branch"
+                        [ngClass]="{'is-invalid':submitted && Validate['Status'].errors}">
+                        <option disabled="disabled" selected value="">--Chose Option</option>
+                        <option value="CS">CS</option>
+                        <option value="Mechanical">Machanical</option>
+                        <option value="Electrical">Electrical</option>
+                    </select>
+                    <div *ngIf="submitted && Validate['Branch']?.invalid"
+                        style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                        This Field Can't be Empty! </div>
+                        
+                </div>
+            </div>
+
+
+            
+
+
+
+            <fieldset class="border p-2 mt-3">
+                <legend class="float-none w-auto">Color Setting </legend>
+
+                <div class="row  g-1">
+
+                    <div class="col-sm-4">
+                        <label style="font-size:14px;" class="me-2 form-label">Background Color: <span
+                                id="super">*</span></label>
+                        <input type="text" style="height:37px;" class="me-3 form-control" value="{{bgColor.slice()}}"
+                            ngModel="{{bgColor}}" name="bgColor" formControlName="bgSetting"
+                            [ngClass]="{'is-invalid':submitted && Validate['Status'].errors}">
+
+                        <!-- For Displaying a list of validation errors that results in an INVALID status, or null,  -->
+                        <div *ngIf="submitted && Validate['bgSetting']?.invalid "
+                            style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+
+                            <div *ngIf="submitted && Validate['bgSetting']?.errors?.['required'] "
+                                style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                                Can't Be Empty ! </div>
+
+                            <div *ngIf="submitted && Validate['bgSetting']?.errors?.['pattern'] "
+                                style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                                Invalid Color Code ! </div>
+                        </div>
+                    </div>
+
+                    <!-- <lable class="btn btn-warning col-sm-2 w-auto mx-auto formate1" style="height:fit-content;"
+                        [(colorPicker)]="bgColor">
+                        Show Color</lable> -->
+                    <!-- </div> -->
+
+                    <div class="col-sm-6">
+
+                        <lable class="btn btn-warning w-auto formate" style="height:fit-content;"
+                            [(colorPicker)]="bgColor">
+                            Show Color</lable>
+
+                    </div>
+                </div>
+
+
+                <div class="row mt-2 g-1">
+
+                    <div class="col-sm-4">
+                        <label style="font-size:14px;" class=" me-2 form-label">Header Color: <span
+                                id="super">*</span></label>
+                        <input style="height:37px;" type="text" class="me-3 form-control" value="{{hdrColor.slice()}}"
+                            ngModel="{{hdrColor}}" formControlName="hdrSetting"
+                            [ngClass]="{'is-invalid':submitted && Validate['Status'].errors}">
+
+                        <!-- For Displaying a list of validation errors that results in an INVALID status, or null,  -->
+                        <div *ngIf="submitted && Validate['hdrSetting']?.invalid"
+                            style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                            <div *ngIf="submitted && Validate['hdrSetting']?.errors?.['required'] "
+                                style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                                Can't Be Empty ! </div>
+
+                            <div *ngIf="submitted && Validate['hdrSetting']?.errors?.['pattern'] "
+                                style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                                Invalid Color Code ! </div>
+                        </div>
+                    </div>
+
+                    <!-- <label type="text" class="btn btn-warning col-sm-2 w-auto mx-auto formate1"
+                        style="height:fit-content;" [(colorPicker)]="hdrColor">
+                        Show Color</label> -->
+
+                    <div class="col-sm-6">
+
+                        <lable class="btn btn-warning w-auto formate" style="height:fit-content;"
+                            [(colorPicker)]="hdrColor">
+                            Show Color</lable>
+
+                    </div>
+                </div>
+
+                <div class="row mt-2 g-1">
+                    <div class="col-sm-4">
+
+                        <label style="font-size:14px;" class="me-2 form-label">Generated Color: <span
+                                id="super">*</span></label>
+                        <input style="height:37px;" type="text" class="me-3 form-control" value="{{txtColor.slice()}}"
+                            ngModel="{{txtColor}}" formControlName="txtSetting"
+                            [ngClass]="{'is-invalid':submitted && Validate['Status'].errors}">
+
+                        <!-- For Displaying a list of validation errors that results in an INVALID status, or null,  -->
+                        <div *ngIf="submitted && Validate['txtSetting']?.invalid "
+                            style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                            <div *ngIf="submitted && Validate['txtSetting']?.errors?.['required'] "
+                                style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                                Can't Be Empty ! </div>
+
+                            <div *ngIf="submitted && Validate['txtSetting']?.errors?.['pattern'] "
+                                style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                                Invalid Color Code ! </div>
+                        </div>
+                        <!-- </div> -->
+                        <!-- <label type="text" class="btn btn-warning col-sm-2 w-auto mx-auto formate1"
+                        style="height:fit-content;" [(colorPicker)]="txtColor">
+                        Show Color</label> -->
+                        <!-- </div> -->
+
+                    </div>
+                    <div class="col-sm-6">
+                        <lable class="btn btn-warning w-auto formate" style="height:fit-content;"
+                            [(colorPicker)]="txtColor">
+                            Show Color</lable>
+                    </div>
+
+                </div>
+
+                <div class="row mt-2 g-1">
+
+                    <div class="col-sm-4">
+
+                        <label style="font-size:14px;" class="me-2 form-label">Special Mask Color: <span
+                                id="super">*</span></label>
+                        <input style="height:37px;" type="text" class="me-3 form-control" value="{{mskColor.slice()}}"
+                            ngModel="{{mskColor}}" formControlName="mskSetting"
+                            [ngClass]="{'is-invalid':submitted && Validate['Status'].errors}">
+
+                        <!-- For Displaying a list of validation errors that results in an INVALID status, or null,  -->
+                        <div *ngIf="submitted && Validate['mskSetting']?.invalid "
+                            style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                            <div *ngIf="submitted && Validate['mskSetting']?.errors?.['required'] "
+                                style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                                Can't Be Empty ! </div>
+
+                            <div *ngIf="submitted && Validate['mskSetting']?.errors?.['pattern'] "
+                                style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                                Invalid Color Code ! </div>
+                        </div>
+                    </div>
+
+                    <!-- <label type="text" class="btn btn-warning col-sm-2 w-auto mx-auto formate1"
+                        style="height:fit-content;" [(colorPicker)]="mskColor">
+                        Show Color</label>
+                </div> -->
+
+                    <div class="col-sm-6">
+                        <lable class="btn btn-warning col-sm-12 w-auto formate" style="height:fit-content;"
+                            [(colorPicker)]="mskColor">
+                            Show Color</lable>
+                    </div>
+                </div>
+
+
+                <div class="row mt-2 g-1">
+                    <div class="col-sm-4">
+
+                        <label style="font-size:14px;" class="me-2 form-label">Footer Color: <span
+                                id="super">*</span></label>
+                        <input style="height:37px;" type="text" class="me-3 form-control" [value]="ftrColor.slice()"
+                            ngModel="{{ftrColor}}" formControlName="ftrSetting"
+                            [ngClass]="{'is-invalid':submitted && Validate['Status'].errors}">
+
+                        <!-- For Displaying a list of validation errors that results in an INVALID status, or null,  -->
+                        <div *ngIf="submitted && Validate['ftrSetting']?.invalid"
+                            style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                            <div *ngIf="submitted && Validate['ftrSetting']?.errors?.['required'] "
+                                style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                                Can't Be Empty ! </div>
+
+                            <div *ngIf="submitted && Validate['ftrSetting']?.errors?.['pattern'] "
+                                style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                                Invalid Color Code ! </div>
+                        </div>
+                    </div>
+
+                    <!-- <label type="text" class="btn btn-warning col-sm-2 w-auto mx-auto  formate1"
+                        style="height:fit-content;" [(colorPicker)]="ftrColor">
+                        Show Color</label>
+                    </div> -->
+
+                    <div class="col-sm-6">
+                        <lable class="btn btn-warning w-auto formate" style="height:fit-content;"
+                            [(colorPicker)]="ftrColor">
+                            Show Color</lable>
+                    </div>
+                </div>
+
+
+                <div class="row mt-2 g-1">
+
+                    <div class="col-sm-3">
+                        <div class="me-2">Card Border:</div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class=" form-check form-check-inline me-3">
+
+                            <input class="form-check-input col-sm-1" type="radio" value="Yes" name="crdBorder"
+                                formControlName="crdBorder">Yes <br>
+                            <input class="form-check-input" type="radio" value="No" name="crdBorder"
+                                formControlName="crdBorder">No
+                            <!-- <label class="form-check-label" for="{{}}" >{{crd.label}}</label> -->
+                        </div>
+                    </div>
+                    <div *ngIf="submitted && Validate['crdBorder']?.invalid"
+                        style="display: inline-block; width:max-content; height: 10px; color: red;" class="">
+                        Required ! <br></div>
+                </div>
+
+
+
+                <hr>
+                <button type="submit" class="ssbtn btn btn-primary text-center w-auto mx-auto">
+                    Save Setting</button>
+            </fieldset>
+        </form>
+    </fieldset>
+
+    <!-- <p *ngFor="let crd of crdBorder">{{crd.value}}</p> -->
+    <!-- <p>{{ this.cardsBgForm.value | json }}</p> -->
+    <!-- <p>{{ this.cardsBgForm.value | json }} </p> -->
+    <!-- <p>{{(this.cardsBgForm.value.crdBorder.value) }}</p> -->
+</div>
+
+
+
+<!-- <div class="position-relative m-5"> -->
+
+<label for="name" class="mt-5">Search : &nbsp; </label>
+<input id="name" type="text" placeholder="Staus/ Course here..." [(ngModel)]="searchVal"
+    (ngModelChange)=checkSearchVal()>
+<!-- <span>&nbsp;&nbsp; &nbsp;</span> -->
+<!-- <button type="button" (click)="SearchBtn()"> Show</button> -->
+<!--  -->
+<!-- </div> -->
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Program Stats</th>
+            <th scope="col">Faculty</th>
+            <th scope="col">Course</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Backgroung Color</th>
+            <th scope="col">Header Color</th>
+            <th scope="col">Text Color</th>
+            <th scope="col">Mask Color</th>
+            <th scope="col">Footer Color</th>
+            <th scope="col">Card Button</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let i of searchList; let sr = index; ">
+            <th scope="row">{{ sr+1 }}</th>
+            <td>{{ i.Status }}</td>
+            <td>{{ i.Faculty }}</td>
+            <td>{{ i.Course }}</td>
+            <td>{{ i.Branch }}</td>
+            <td>{{ i.bgSetting }}</td>
+            <td>{{ i.hdrSetting }}</td>
+            <td>{{ i.txtSetting }}</td>
+            <td>{{ i.mskSetting }}</td>
+            <td>{{ i.ftrSetting }}</td>
+            <td>{{ i.crdBorder }}</td>
+
+
+        </tr>
+
+    </tbody>
+</table>

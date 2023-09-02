@@ -1,0 +1,9 @@
+<p>dropdown works!</p>
+
+<div [formGroup]="form">
+    <select [formControlName]="meta.key" id="meta.key">
+        <option *ngFor="let opt of meta.options" [value]="opt.key">
+            {{opt.value}}
+        </option>
+    </select>
+</div>

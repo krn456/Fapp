@@ -1,0 +1,9 @@
+<p>checkbox works!</p>
+
+<div [formGroup]="form">
+    <input type="checkbox"
+    [id]="meta.key"
+    [formControlName]="meta.key"
+    />
+    <label for="{{meta.key}}">{{meta.label}}</label>
+</div>

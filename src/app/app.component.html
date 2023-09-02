@@ -1,0 +1,62 @@
+<!-- As a heading -->
+<ng-container *ngif="meta && data" >
+  <app-dynamic-form-video [meta]="meta" [data]="data"></app-dynamic-form-video>
+</ng-container>
+
+<!-- <button class="btn btn-primary mt-s" (click)="refresh()">refresh</button> -->
+
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Angular App</span>
+  </div>
+</nav>
+
+
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/card-bg-setting-component" routerLinkActive="active" ariaCurrentWhenActive="page">
+            Cards</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dynamic-form-fields-component" routerLinkActive="active" ariaCurrentWhenActive="page">
+            Dynamic Fields</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dynamic-form-component" routerLinkActive="active" ariaCurrentWhenActive="page">
+            Dynamic Form</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dForm-component" routerLinkActive="active" ariaCurrentWhenActive="page">
+            dForm</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>

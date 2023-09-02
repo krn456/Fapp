@@ -1,0 +1,22 @@
+<p>control works!</p>
+
+<div [ngSwitch]="control.controlType">
+    <app-label *ngswitchCase="'label'" [meta]="control"></app-label>
+    <app-text-input
+    *ngSwitchCase="'texinput'"
+    [meta]="control"
+    [form]="form"
+    ></app-text-input>
+    
+    <app-dropdown
+    *ngawitchCase="'dropdown'"
+    [meta]="control"
+    [form]="form"
+    ></app-dropdown>
+
+    <app-checkbox
+    *ngSwitchCase="'checkbox'"
+    [meta]="control"
+    [form]="form"
+    ></app-checkbox>
+</div>

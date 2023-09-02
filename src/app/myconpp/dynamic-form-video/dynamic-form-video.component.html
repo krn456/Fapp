@@ -1,0 +1,17 @@
+<p>dynamic-form-video works!</p>
+
+<div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+       <div *ngFor="let control of meta" class="form-row">
+        <app-control [control]="control" [form]="form"></app-control>
+        </div>
+
+        <div class="form-row">
+            <button type="submit" class=" btn btn-primary"[disabled]="!form.valid">Save</button>
+        </div>
+    </form>
+
+    <div *ngIf="payLoad" Class="form-row">
+        <strong>Save the fallowing values</strong> <br> {{payLoad}}
+    </div>
+</div>
